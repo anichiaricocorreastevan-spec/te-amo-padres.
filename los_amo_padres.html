@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LOS AMO, PADRES</title>
+  <style>
+    :root{
+      --pink1:#ffd1e6;
+      --pink2:#ffb3d1;
+      --pink3:#ff8fc0;
+      --text:#5a0031;
+      --card:#ffffffcc;
+      --accent:#ff4f93;
+    }
+
+    body{
+      margin:0;
+      min-height:100svh;
+      background: radial-gradient(1200px 800px at 20% 10%, var(--pink1), transparent 70%),
+                  radial-gradient(1000px 900px at 80% 0%, var(--pink2), transparent 70%),
+                  linear-gradient(180deg, #ffe3ef, #ffc5dc 60%, #ffb3d1);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .wrap{
+      display:grid;
+      gap:18px;
+      position:relative;
+      z-index:1;
+      padding: clamp(16px, 3vw, 24px);
+      width:min(100%, 980px);
+    }
+
+    .card{
+      position:relative;
+      padding: clamp(20px, 5vw, 48px);
+      border-radius: 28px;
+      background: var(--card);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 20px 60px #ff3c8a2a, 0 6px 16px #ff3c8a22;
+      text-align:center;
+      border: 3px solid #ffffff66;
+    }
+
+    h1{
+      margin:0 0 10px 0;
+      font-size: clamp(30px, 6vw, 64px);
+      line-height:1.05;
+      color: var(--text);
+      letter-spacing: .5px;
+    }
+
+    p.tag{
+      margin: 0 0 8px 0;
+      font-size: clamp(13px, 2.4vw, 18px);
+      color:#7a0040;
+    }
+
+    .big{
+      font-size: clamp(18px, 3.2vw, 26px);
+      color:#7a0040;
+      margin: 8px 0;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:16px;
+    }
+    @media (max-width: 780px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .mini{
+      padding: clamp(18px, 3.6vw, 28px);
+      border-radius:22px;
+      background:#fff9fcdd;
+      border:2px solid #ffffff80;
+      box-shadow: 0 10px 30px #ff3c8a26;
+      text-align:center;
+    }
+    .mini h2{
+      margin:0 0 6px 0;
+      font-size: clamp(22px, 4vw, 34px);
+      color: var(--text);
+    }
+    .mini p{ margin:6px 0; color:#7a0040; font-size: clamp(15px, 2.6vw, 18px); }
+
+    .heart{
+      position:absolute;
+      width: 22px; height: 22px;
+      transform: rotate(45deg);
+      background: var(--accent);
+      top: 14px; right: 14px;
+      box-shadow: 0 6px 14px #ff2e6a44;
+    }
+    .heart::before, .heart::after{
+      content:"";
+      position:absolute;
+      width:22px; height:22px;
+      background:var(--accent);
+      border-radius:50%;
+    }
+    .heart::before{ left:-11px; }
+    .heart::after{ top:-11px; }
+
+    .footer{
+      margin-top: 8px;
+      font-size: 12px;
+      color:#7a0040aa;
+    }
+
+    .floaters{
+      pointer-events:none;
+      position:fixed;
+      inset:0;
+      overflow:hidden;
+      z-index:0;
+    }
+    .floater{
+      position:absolute;
+      font-size: clamp(18px, 3.6vw, 42px);
+      animation: rise var(--dur) linear infinite;
+      opacity:.9;
+      filter: drop-shadow(0 4px 6px #ff2a7026);
+    }
+    @keyframes rise{
+      from{ transform: translateY(120%); }
+      to  { transform: translateY(-120%); }
+    }
+
+    .actions{ display:flex; justify-content:center; gap:10px; margin-top:10px; flex-wrap:wrap; }
+    .btn{
+      border:none; border-radius:999px; padding:10px 16px; font-weight:600; cursor:pointer;
+      background:#ff9ac3; color:#5a0031; box-shadow: 0 6px 18px #ff3c8a33;
+    }
+    .btn:active{ transform: translateY(1px); }
+  </style>
+</head>
+<body>
+  <div class="floaters" id="floaters" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <main class="card" role="main" aria-label="Mensaje para mis padres">
+      <span class="heart" aria-hidden="true"></span>
+      <p class="tag">💐 Con todo mi cariño para ustedes 💐</p>
+      <h1>LOS AMO, PADRES 💖👨‍👩‍👦</h1>
+      <p class="big">Gracias por su amor, su ejemplo y por enseñarme a luchar siempre. 💞</p>
+      <p class="big">Hoy, mañana y siempre: <strong>ustedes son mi corazón</strong> ❤️‍🔥</p>
+
+      <div class="grid" aria-label="Dedicatorias">
+        <section class="mini" aria-labelledby="mom">
+          <h2 id="mom">Para mamá 🌷</h2>
+          <p>Mi refugio y mi fuerza. Cada paso lo doy con lo que usted me enseñó. 💖</p>
+          <p>Te amo, madre. Siempre. 💕</p>
+        </section>
+        <section class="mini" aria-labelledby="dad">
+          <h2 id="dad">Para papá 🛠️</h2>
+          <p>Mi ejemplo y mi guía. Su constancia me hizo quien soy. 💪</p>
+          <p>Te amo, papá. Por hoy y por siempre. 💝</p>
+        </section>
+      </div>
+
+      <div class="actions">
+        <button class="btn" id="copyLink" type="button" title="Copiar URL local">Copiar URL local</button>
+      </div>
+
+      <div class="footer">Hecho con mucho amor en nuestra red 🛜</div>
+    </main>
+  </div>
+
+  <script>
+    (function(){
+      const cont = document.getElementById('floaters');
+      const EMOJIS = ["💖","💘","💗","💓","💞","💝","💕","❤️"];
+      const N = 30;
+      for(let i=0;i<N;i++){
+        const e = document.createElement('div');
+        e.className = 'floater';
+        e.textContent = EMOJIS[Math.floor(Math.random()*EMOJIS.length)];
+        const left = Math.random()*100;
+        const delay = -Math.random()*8;
+        const dur = 12 + Math.random()*10;
+        const rotate = (Math.random()*40-20);
+        const scale = 0.7 + Math.random()*1.1;
+        e.style.left = left + 'vw';
+        e.style.setProperty('--dur', dur+'s');
+        e.style.animationDelay = delay + 's';
+        e.style.transform = `translateY(120%) rotate(${rotate}deg) scale(${scale})`;
+        cont.appendChild(e);
+      }
+    })();
+
+    (function(){
+      const btn = document.getElementById('copyLink');
+      if(!btn) return;
+      btn.addEventListener('click', async ()=>{
+        const path = location.pathname.split('/').pop() || 'los_amo_padres.html';
+        const url = `http://localhost:8080/${path}`;
+        try{
+          await navigator.clipboard.writeText(url);
+          btn.textContent = 'URL copiada ✓';
+          setTimeout(()=> btn.textContent = 'Copiar URL local', 2200);
+        }catch(err){
+          alert('Copie esta dirección manualmente: ' + url);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
